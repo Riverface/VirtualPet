@@ -6,7 +6,9 @@ module.exports = {
   mode: "development",
   target: 'node',
   entry: './src/main.js',
+ 
   output: {
+ 
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'docs')
   },
@@ -14,14 +16,21 @@ module.exports = {
   devServer: {
     contentBase: './docs'
   },
+
   plugins: [
     new UglifyJsPlugin({
       sourceMap: true
     }),
     new CleanWebpackPlugin(['docs']),
-
+    new HtmlWebpackPlugin({
+      title: 'VirtualPet',
+      template: './src/index.html',  
+      inject: 'head'
+    })
   ],
+  
   module: {
+ 
     rules: [{
         test: /\.css$/,
         use: [
