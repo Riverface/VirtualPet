@@ -23,12 +23,12 @@ describe ( "The Pet", function(){
         cactuardo.ToggleWork();
         console.log(cactuardo.working);
         console.log(cactuardo.workflag);
-        cactuardo.working = true;
         jasmine.clock().tick(300000);
 
         console.log(cactuardo);
         console.log(cactuardo.workflag);
         expect(cactuardo.worktime).toBeGreaterThan(0);
+ 
         cactuardo.timescale = 0.25;
 
     });
