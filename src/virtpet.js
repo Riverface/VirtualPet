@@ -62,7 +62,9 @@ export class virtpet {
             this.minute++;
             this.seconds = 0;
             if (this.minute >= 60) {
+                console.log(this.minute);
                 if (this.working) {
+                    console.log("Cactuardo is working!");
                     this.worktime++;
                     this.totalworktime++;
                     if (this.energy > 0) {

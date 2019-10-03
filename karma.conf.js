@@ -11,7 +11,7 @@ module.exports = function(config) {
       }
     },
     basePath: "",
-    frameworks: ['jquery-3.2.1', 'jasmine'],
+    frameworks: ['jquery-3.2.1', 'jasmine','browserify'],
     files: [
       'src/*.js',
       'spec/*spec.js'
@@ -29,7 +29,8 @@ module.exports = function(config) {
       'karma-jasmine',
       'karma-Chrome-launcher',
       'karma-jasmine-html-reporter',
-      'karma-sourcemap-loader'
+      'karma-sourcemap-loader',
+      'karma-browserify'
     ],
     reporters: ['progress', 'kjhtml'],
     

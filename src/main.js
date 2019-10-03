@@ -7,7 +7,7 @@ import 'bootstrap';
 import './styles.css';
 $(document).ready(function () {
     let pet = new virtpet();
-    console.log(pet);
+
     $("#togglework").click(function () {
         pet.ToggleWork();
     });
@@ -19,6 +19,7 @@ $(document).ready(function () {
     });
     var pagethread = setInterval(() => {
         $("#petfood").val(pet.food);
+        
         $("#petfoodreadout").text(pet.food + " / " + pet.maxfood);
         if (!pet.workflag && !pet.working) {
             $("#workstatus").text("idle");
