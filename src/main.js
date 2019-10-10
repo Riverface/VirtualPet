@@ -7,7 +7,25 @@ import 'bootstrap';
 import './styles.css';
 $(document).ready(function () {
     let pet = new virtpet();
+    pet.money = 1000;
+    pet.food = 50;
+    $("#buyfood").click(function(){
+        if(pet.money > pet.foodprice){
 
+            pet.money -= pet.foodprice;
+            pet.foodstock++;
+        }
+        $("#feedpet").click(function(){
+            
+            pet.foodstock--;
+            pet.eatflag = true;
+            
+        });
+
+}); 
+   $("#tickratechanger").click(function(){
+       pet.tickrate = $("#tickrate").val();
+    });
     $("#togglework").click(function () {
         pet.ToggleWork();
     });
@@ -17,13 +35,17 @@ $(document).ready(function () {
     $("#debuglife").click(function(){
     pet.life = pet.maxlife;
     });
+    $("#sleepwake").click(function(){
+        pet.Togglewake();
+    });
     var pagethread = setInterval(() => {
         $("#petfood").val(pet.food);
-        
+        $("#foodstockreadout").text(pet.foodstock + " units of food in stores");
         $("#petfoodreadout").text(pet.food + " / " + pet.maxfood);
         if (!pet.workflag && !pet.working) {
             $("#workstatus").text("idle");
         }
+        
         if (!pet.workflag && pet.working) {
             $("#workstatus").text("Clocking out at the end of the hour...");
         }
@@ -51,10 +73,11 @@ $(document).ready(function () {
             $("#feedpet").text("feed");
         }
 
-        if (pet.active) {
+        if (!pet.sleeping) {
             $("#sleepwake").text("Sleep");
         } else {
             $("#sleepwake").text("Wake");
+            
         }
         $("#petlife").val(pet.life);
         $("#petlifereadout").text(`${pet.life} / ${pet.maxlife}`);

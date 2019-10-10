@@ -5,6 +5,7 @@ describe("The Pet", function () {
   let cactuardo = new virtpet();
   beforeEach(function () {
     jasmine.clock().install();
+    cactuardo.mainthread;
   });
   afterEach(function () {
     jasmine.clock().uninstall();

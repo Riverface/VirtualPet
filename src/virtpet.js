@@ -29,23 +29,25 @@ export class virtpet {
         this.month = 0;
         this.year = 0;
         this.decade = 0;
-
+        this.foodprice = 1;
         this.speed = 1;
         this.worktime = 0;
         this.totalworktime = 0;
         this.wages = 1;
         this.week = 0;
         this.time = 0;
-
+        this.sleeping = false;
+        this.eating = false;
         this.workflag = false;
         this.working = false;
-        this.timescale = 1;
-        this.eating = 0;
+        this.tickrate = 1;
+        this.eatingticks = 0;
         this.mainthread = setInterval(() => {
-            if (this.active) {
-                this.Tick();
+            for(var trate = 0; trate < this.tickrate; trate++){
+            this.Tick();
             }
-        }, this.timescale);
+        }, 1);
+
     }
     Tick() {
         if (this.totalticks == 0) {
@@ -53,30 +55,46 @@ export class virtpet {
             this.FirstParse();
         }
         this.ParseStats();
+        if(this.eatflag){
+        this.eatingticks = this.totalticks;
+        this.eating = true;
+        }
+
         this.totalticks++;
         this.seconds++;
         if (this.seconds == 60) {
-            if (this.eating > 0) {
+            if(this.eating){
+                this.eatflag = false;
                 this.food += this.foodrate;
+            if(this.totalticks == this.eatingticks + (60 * 20)){
+                this.eating = false;
+            }
+    
             }
             this.minute++;
             this.seconds = 0;
             if (this.minute >= 60) {
+                this.hour++;
+                this.minute = 0;
+                this.food -= this.hungerrate;
                 console.log(this.minute);
                 if (this.working) {
                     console.log("Cactuardo is working!");
                     this.worktime++;
                     this.totalworktime++;
                     if (this.energy > 0) {
-                        this.energy--;
+                        this.energy-= 2.5;
                     } else {
-                        this.ToggleWork();
+                        this.life--;
                     }
                 }
-                if (!this.working) {
-                    if (this.energy < this.maxenergy) {
 
-                        this.energy++;
+                if(this.sleeping){
+                this.energy += 5;
+                }
+                else{
+                    if (!this.working) {
+                        this.energy--;
                     }
                 }
                 if (this.workflag == true) {
@@ -90,9 +108,7 @@ export class virtpet {
                 if (this.food == 0) {
                     this.life -= this.hungerrate;
                 }
-                this.hour++;
-                this.minute = 0;
-                this.food -= this.hungerrate;
+
                 if (this.hour >= 24) {
 
                     this.day++;
@@ -129,7 +145,7 @@ export class virtpet {
         this.energy = this.maxenergy;
         this.food = this.maxfood;
         this.life = this.maxlife;
-        this.foodrate = 30 - (this.difficulty >= 0 ? 0 : this.difficulty * 5);
+        this.foodrate = 1;
         this.hungerrate = 1 * this.difficulty;
     }
     ParseStats() {
@@ -139,6 +155,7 @@ export class virtpet {
         this.strength = ((this.level * 1) + parseInt(this.totalworktime / Math.PI));
         this.wages = (parseFloat((this.strength * this.speed) * .05).toPrecision(1));
         this.time = `${this.decade} decades,</br> ${this.year} years,</br> ${this.month} months,</br> ${this.week} weeks, ${this.day} days, </br> ${this.hour} hours,</br> ${this.minute} minutes,</br> ${this.seconds} seconds, </br> ${this.totalticks} ticks`;
+        this.foodprice = (this.difficulty * (this.foodstock / 2));
     }
     FillEnergy() {
         this.energy = this.maxenergy;
@@ -152,11 +169,12 @@ export class virtpet {
             this.foodstock--;
         }
     }
+
     Togglewake() {
-        if (!this.active) {
-            this.active = true;
+        if (!this.sleeping) {
+            this.sleeping = true;
         } else {
-            this.active = false;
+            this.sleeping = false;
         }
     }
     ToggleWork() {

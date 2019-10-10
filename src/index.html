@@ -1,38 +1,50 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Title</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  </head>
-  <body>
-    <div id='virtualpet'></div>
-    <div id='stats' class='container'>
 
-        <progress id='petfood' max='100'></progress>
-        <div class='stat'><div id='petfoodreadout'></div>
-        <div id='foodstockreadout'></div>
-        <progress id='petlife' max='100'></progress>
-        <div></div><div class='stat' id='petlifereadout'></div></div>
-        <progress id='petenergy' max='100'></progress>
-        <div class='stat' id='petenergyreadout'><div id='petenergymaxreadout'></div>/<div></div></div> 
-        <div id='petwages'></div>
-        <div id='money'></div>
-        <div id='difficulty'></div>
-        <div id='age'></div>
-        <div id='petspeed'></div>
-<div id='petstrength'></div>
-<div id='totaltime'></div>
-<div id='worktime'></div>
-<div id='workstatus'></div>
-<button id='buyfood' class='btn-default'>Buy food</button>
-<button id='togglework'></button>
-<button id='feedpet'></button>
-<button id='sleepwake'></button>
-<button id='debugfeed'>(debug) Fill Food</button>
-<button id='debugenergy'>(debug) Fill Energy</button>
-<button id='debuglife'>(debug) Fill Life</button>
-<button id='kill'>(debug) kill</button>
-</div>
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+  <div id='virtualpet'></div>
+  <div id='stats' class='container'>
+
+    <progress id='petfood' max='100'></progress>
+    <div class='stat'>
+      <div id='petfoodreadout'></div>
+      <div id='foodstockreadout'></div>
+      <progress id='petlife' max='100'></progress>
+      <div></div>
+      <div class='stat' id='petlifereadout'></div>
+    </div>
+    <progress id='petenergy' max='100'></progress>
+    <div class='stat' id='petenergyreadout'>
+      <div id='petenergymaxreadout'></div>/<div></div>
+    </div>
+    <div id='petwages'></div>
+    <div id='money'></div>
+    <div id='difficulty'></div>
+    <div id='age'></div>
+    <div id='petspeed'></div>
+
+    <div id='petstrength'></div>
+    <div id='totaltime'></div>
+    <div id='worktime'></div>
+    <div id='workstatus'></div>
+    <button id='buyfood' class='btn-default'>Buy food</button>
+    <button id='togglework'></button>
+    <button id='feedpet'></button>
+    <button id='sleepwake'></button>
+    <button id='debugenergyaway'></button>
+    <button id='debugfeed'>(debug) Fill Food</button>
+    <button id='debugenergy'>(debug) Fill Energy</button>
+    <button id='debuglife'>(debug) Fill Life</button>
+    <button id='kill'>(debug) kill</button>
+    <input type="number" id='tickrate' min='1' max='1000'></input>
+    <button id='tickratechanger'></button>
+  </div>
 </body>
+
 </html>
