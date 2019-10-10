@@ -21,16 +21,19 @@
     "aws-sdk": "^2.542.0",
     "bootstrap": "^4.3.1",
     "browserify": "^16.5.0",
+    "jasmine-node": "^3.0.0",
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "jquery-ui-bundle": "^1.12.1-migrate",
     "jqueryui": "^1.11.1",
     "materialize-css": "^1.0.0",
     "node-pre-gyp": "^0.13.0",
+    "o3d": "0.0.0",
     "popper.js": "^1.15.0",
     "reload": "^3.0.1",
     "requirejs": "^2.3.6",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "webgl": "0.0.7"
   },
   "devDependencies": {
     "@types/jasmine": "^3.4.2",
