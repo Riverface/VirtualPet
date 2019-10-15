@@ -33,6 +33,7 @@
     "reload": "^3.0.1",
     "requirejs": "^2.3.6",
     "typescript": "^3.6.3",
+    "vector-js": "0.0.0",
     "webgl": "0.0.7"
   },
   "devDependencies": {
