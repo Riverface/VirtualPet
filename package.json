@@ -23,7 +23,7 @@
     "browserify": "^16.5.0",
     "jasmine-node": "^3.0.0",
     "jquery": "^3.4.1",
-    "jquery-ui": "^1.12.1",
+    "jquery-ui": "^1.13.0",
     "jquery-ui-bundle": "^1.12.1-migrate",
     "jqueryui": "^1.11.1",
     "materialize-css": "^1.0.0",
