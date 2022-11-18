@@ -45,7 +45,7 @@
     "css-loader": "^3.2.0",
     "eslint": "^4.18.2",
     "eslint-loader": "^2.0.0",
-    "html-webpack-plugin": "^3.0.6",
+    "html-webpack-plugin": "^5.5.0",
     "jasmine": "^3.5.0",
     "jasmine-core": "^3.5.0",
     "karma": "^4.3.0",
@@ -63,7 +63,7 @@
     "uglifyjs-webpack-plugin": "^1.2.2",
     "watchify": "^3.11.1",
     "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.8.2"
   },
   "repository": {
